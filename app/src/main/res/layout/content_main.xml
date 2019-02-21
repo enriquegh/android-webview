@@ -8,27 +8,35 @@
     tools:context="com.enriquegh.apps.webview_app.MainActivity"
     tools:showIn="@layout/activity_main">
 
-    <TextView
-        android:id="@+id/textView"
+    <Button
+        android:id="@+id/chrome_btn"
+        android:layout_width="169dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:onClick="openInChrome"
+        android:text="Open in Chrome"
+        app:layout_constraintBottom_toTopOf="@+id/custom_tab_btn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.244" />
+
+    <Button
+        android:id="@+id/custom_tab_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="232dp"
+        android:onClick="openCustomTab"
+        android:text="Open in Custom Tab"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <WebView xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/webview"
-        android:layout_width="381dp"
-        android:layout_height="257dp" />
-
-    <WebView xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/webview_sauce"
-        android:layout_width="383dp"
-        android:layout_height="251dp"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteY="260dp"
-        android:layout_alignBottom="@+id/webview"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </android.support.constraint.ConstraintLayout>

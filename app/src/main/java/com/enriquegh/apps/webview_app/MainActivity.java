@@ -1,16 +1,16 @@
 package com.enriquegh.apps.webview_app;
 
-import android.content.pm.PackageInfo;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.support.customtabs.CustomTabsIntent;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.webkit.WebView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -30,12 +30,21 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-//        WebView myWebView = (WebView) findViewById(R.id.webview);
-//        myWebView.loadUrl("https://d19v92sz1bqyhz.cloudfront.net/assets/fullscreen-background.jpg");
-//
-        WebView myOtherWebView = (WebView) findViewById(R.id.webview_sauce);
-        myOtherWebView.loadUrl("https://cdn-images-1.medium.com/max/1600/1*-SqfDyxvQAhYhagkVTxJEg.png");
-        myOtherWebView.setWebContentsDebuggingEnabled(true);
+    }
+
+    public void openInChrome(View view) {
+
+        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://the-internet.herokuapp.com/login"));
+        browserIntent.setPackage("com.android.chrome");
+        browserIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(browserIntent);
+    }
+
+    public void openCustomTab(View view) {
+        String url = "https://enriquegh.com";
+        CustomTabsIntent.Builder builder = new CustomTabsIntent.Builder();
+        CustomTabsIntent customTabsIntent = builder.build();
+        customTabsIntent.launchUrl(this, Uri.parse(url));
 
     }
 
